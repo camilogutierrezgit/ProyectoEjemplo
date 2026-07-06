@@ -24,6 +24,15 @@ export class UserService {
     );
   }
 
+  getUserById(id: number): Observable<User> {
+    return this.http.get<User>(`${API_BASE_URL}/users/${id}`).pipe(
+      catchError(error => {
+        console.error('Error fetching user:', error);
+        return throwError(() => new Error('Failed to load user details. Please try again.'));
+      })
+    );
+  }
+
   addUser(userDto: CreateUserDto): Observable<User> {
     return this.http.post<User>(`${API_BASE_URL}/users`, userDto).pipe(
       tap(newUser => this._users$.next([...this._users$.getValue(), newUser])),

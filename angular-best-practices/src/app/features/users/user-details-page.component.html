@@ -1,11 +1,23 @@
-<div class="page-container">
-  <div *ngIf="user$ | async as user; else loading">
+<div class="page-container glass-panel">
+  <div class="page-header">
+    <a routerLink="/users" class="btn btn-primary btn-sm">&larr; Back to Users</a>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading user details...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="errorMessage" class="error-state">
+    <p class="error-icon">⚠️</p>
+    <p>{{ errorMessage }}</p>
+    <a routerLink="/users" class="btn btn-primary">Back to Users</a>
+  </div>
+
+  <!-- Success State -->
+  <div *ngIf="!isLoading && !errorMessage && (user$ | async) as user">
     <app-user-profile [user]="user"></app-user-profile>
   </div>
-  <ng-template #loading>
-    <div class="loading-state">
-      <div class="spinner"></div>
-      <p>Loading user details...</p>
-    </div>
-  </ng-template>
 </div>
