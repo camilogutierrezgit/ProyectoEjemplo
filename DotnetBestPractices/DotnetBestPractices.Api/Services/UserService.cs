@@ -16,6 +16,12 @@ public class UserService : IUserService
         return Task.FromResult<IEnumerable<User>>(_users);
     }
 
+    public Task<User?> GetUserByIdAsync(int id)
+    {
+        var user = _users.FirstOrDefault(u => u.Id == id);
+        return Task.FromResult(user);
+    }
+
     public Task<User> AddUserAsync(CreateUserDto userDto)
     {
         var newUser = new User

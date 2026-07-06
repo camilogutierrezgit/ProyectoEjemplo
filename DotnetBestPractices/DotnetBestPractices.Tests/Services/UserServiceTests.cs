@@ -60,4 +60,32 @@ public class UserServiceTests
         Assert.Equal(2, users.Count());
         Assert.DoesNotContain(users, u => u.Id == 1);
     }
+
+    [Fact]
+    public async Task GetUserByIdAsync_ShouldReturnUser_WhenUserExists()
+    {
+        // Arrange
+        var service = new UserService();
+
+        // Act
+        var user = await service.GetUserByIdAsync(1);
+
+        // Assert
+        Assert.NotNull(user);
+        Assert.Equal(1, user.Id);
+        Assert.Equal("Ada", user.FirstName);
+    }
+
+    [Fact]
+    public async Task GetUserByIdAsync_ShouldReturnNull_WhenUserDoesNotExist()
+    {
+        // Arrange
+        var service = new UserService();
+
+        // Act
+        var user = await service.GetUserByIdAsync(999);
+
+        // Assert
+        Assert.Null(user);
+    }
 }
