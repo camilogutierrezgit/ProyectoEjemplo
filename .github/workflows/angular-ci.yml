@@ -17,7 +17,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   build-and-test:
-    name: "🔨 Build & Test Angular"
+    name: "Build & Test Angular"
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -49,7 +49,7 @@ jobs:
       - name: "Test — Ejecutar pruebas unitarias"
         working-directory: angular-best-practices
         run: npx vitest run --reporter=default --coverage
-        
+
       - name: "Subir reporte de cobertura"
         if: always()
         uses: actions/upload-artifact@v4

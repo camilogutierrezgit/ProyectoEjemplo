@@ -250,8 +250,8 @@ Para que los pipelines realmente bloqueen PRs que fallan, debes configurar **Bra
 Pull Request #42: "Agregar feature de login"
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Status Checks:
-  ✅ 🔨 Build & Test Angular (Node 20)     — Passed
   ✅ 🔨 Build & Test Angular (Node 22)     — Passed
+  ✅ 🔨 Build & Test Angular (Node 24)     — Passed
   ✅ 🔨 Build & Test .NET                  — Passed
 
   [  Merge Pull Request  ]     ← ✅ Botón habilitado
@@ -296,7 +296,7 @@ Estos pipelines ya incluyen varias buenas prácticas de la industria:
 | **Mínimo privilegio** (`permissions: contents: read`) | Ambos | Seguridad — el pipeline no puede modificar el repo |
 | **Caché de dependencias** | Angular | Acelera pipelines futuros (de ~2min a ~30s) |
 | **`npm ci` en vez de `npm install`** | Angular | Instalación determinista y reproducible |
-| **Matrix strategy** (Node 20 + 22) | Angular | Detectar incompatibilidades temprano |
+| **Matrix strategy** (Node 22 + 24) | Angular | Detectar incompatibilidades temprano |
 | **`--warnaserror`** | .NET | Fuerza código limpio sin advertencias |
 | **Cobertura de código** | Ambos | Visibilidad de qué tan bien se testea el código |
 | **Upload de artefactos** (`if: always()`) | Ambos | Poder inspeccionar fallos después |
