@@ -1,0 +1,17 @@
+.user-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.8rem;
+}
+.user-field-label {
+  font-size: 0.85rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.2rem;
+}
+.user-field-value {
+  font-size: 1rem;
+  color: #1e293b;
+  font-weight: 500;
+}

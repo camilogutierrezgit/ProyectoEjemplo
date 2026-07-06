@@ -1,0 +1,19 @@
+<div class="user-card glass-panel">
+  <div class="card-header">
+    <img [src]="user.avatarUrl" alt="Avatar" class="avatar" />
+    <div class="header-info">
+      <h3>{{ user.firstName }} {{ user.lastName }}</h3>
+      <span class="badge" [class.badge-admin]="user.role === 'Admin'">{{ user.role }}</span>
+    </div>
+  </div>
+  
+  <div class="card-body">
+    <app-user-field label="Email" [value]="user.email"></app-user-field>
+    <app-user-field label="Status" [value]="user.isActive ? 'Active' : 'Inactive'"></app-user-field>
+  </div>
+
+  <div class="card-footer">
+    <a [routerLink]="['/users', user.id]" class="btn btn-primary btn-sm">Profile</a>
+    <button (click)="onDelete()" class="btn btn-danger btn-sm">Delete</button>
+  </div>
+</div>

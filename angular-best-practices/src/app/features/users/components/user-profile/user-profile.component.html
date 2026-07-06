@@ -1,0 +1,21 @@
+<div class="profile-container glass-panel" *ngIf="user">
+  <div class="profile-header">
+    <img [src]="user.avatarUrl" alt="Avatar" class="avatar-large" />
+    <div class="profile-title">
+      <h2>{{ fullName }}</h2>
+      <span class="badge" [class.badge-admin]="user.role === 'Admin'">{{ user.role }}</span>
+    </div>
+  </div>
+  
+  <div class="profile-details">
+    <app-user-field label="ID" [value]="user.id"></app-user-field>
+    <app-user-field label="First Name" [value]="user.firstName"></app-user-field>
+    <app-user-field label="Last Name" [value]="user.lastName"></app-user-field>
+    <app-user-field label="Email" [value]="user.email"></app-user-field>
+    <app-user-field label="Status" [value]="user.isActive ? 'Active' : 'Inactive'"></app-user-field>
+  </div>
+
+  <div class="profile-actions">
+    <a routerLink="/users" class="btn btn-secondary">Back to List</a>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="page-container">
+  <div *ngIf="user$ | async as user; else loading">
+    <app-user-profile [user]="user"></app-user-profile>
+  </div>
+  <ng-template #loading>
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>Loading user details...</p>
+    </div>
+  </ng-template>
+</div>
