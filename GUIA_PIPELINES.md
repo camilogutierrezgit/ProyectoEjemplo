@@ -109,14 +109,14 @@ Descarga el código del repositorio al runner. **Es siempre el primer paso** de 
 ```yaml
 strategy:
   matrix:
-    node-version: [20, 22]
+    node-version: [22, 24]
 
 uses: actions/setup-node@v4
 with:
   node-version: ${{ matrix.node-version }}
   cache: "npm"
 ```
-- **Matrix Strategy**: Ejecuta el pipeline con Node.js 20 Y 22 en paralelo. Esto detecta problemas de compatibilidad temprano.
+- **Matrix Strategy**: Ejecuta el pipeline con Node.js 22 (LTS) Y 24 (latest) en paralelo. Esto detecta problemas de compatibilidad temprano.
 - **Cache**: Guarda `node_modules` en caché entre ejecuciones para acelerar el pipeline.
 
 #### 3. 📦 Instalar dependencias
