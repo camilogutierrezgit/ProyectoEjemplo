@@ -6,7 +6,7 @@ import { User, CreateUserDto } from '../models/user.model';
 import { beforeEach, describe, expect, it, afterEach } from 'vitest';
 import { firstValueFrom } from 'rxjs';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'http://localhost:8080/api';
 
 const mockUsers: User[] = [
   { id: 1, firstName: 'Ada', lastName: 'Lovelace', email: 'ada@example.com', role: 'Admin', isActive: true, avatarUrl: '' },
