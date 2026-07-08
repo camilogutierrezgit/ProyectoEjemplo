@@ -1,0 +1,20 @@
+services:
+  api:
+    build:
+      context: ./DotnetBestPractices
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    # If your API needs to talk to a database, you would add the connection string here
+    # - ConnectionStrings__DefaultConnection=...
+
+  frontend:
+    build:
+      context: ./angular-best-practices
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80" # Mapping local port 4200 to Nginx port 80
+    depends_on:
+      - api
